@@ -384,4 +384,62 @@ class SubscriptionInfo extends Entry
             $enableBatchedOperations
         );
     }
+
+    public function getStatus() {
+        return $this->_subscriptionDescription->getStatus();
+    }
+
+    public function setStatus($status) {
+        $this->_subscriptionDescription->setStatus($status);
+    }
+
+    public function getCreatedAt() {
+        return $this->_subscriptionDescription->getCreatedAt();
+    }
+
+    public function setCreatedAt($createdAt) {
+        $this->_subscriptionDescription->setCreatedAt($createdAt);
+    }
+
+    public function getUpdatedAt() {
+        return $this->_subscriptionDescription->getUpdatedAt();
+    }
+
+    public function setUpdatedAt($updatedAt) {
+        $this->_subscriptionDescription->setUpdatedAt($updatedAt);
+    }
+
+    public function getAccessedAt() {
+        return $this->_subscriptionDescription->getAccessedAt();
+    }
+
+    public function setAccessedAt($accessedAt) {
+        $this->_subscriptionDescription->setAccessedAt($accessedAt);
+    }
+
+    public function getCountDetails() {
+        return $this->_subscriptionDescription->getCountDetails();
+    }
+
+    public function setCountDetails($countDetailsArray) {
+        $this->_subscriptionDescription->setCountDetails(
+            CountDetails::create($countDetailsArray)
+        );
+    }
+
+    public function getAutoDeleteOnIdle() {
+        return $this->_subscriptionDescription->getAutoDeleteOnIdle();
+    }
+
+    public function setAutoDeleteOnIdle($autoDeleteOnIdle) {
+        $this->_subscriptionDescription->setAutoDeleteOnIdle($autoDeleteOnIdle);
+    }
+
+    public function getEntityAvailabilityStatus() {
+        return $this->_subscriptionDescription->getEntityAvailabilityStatus();
+    }
+
+    public function setEntityAvailabilityStatus($entityAvailabilityStatus) {
+        $this->_subscriptionDescription->setEntityAvailabilityStatus($entityAvailabilityStatus);
+    }
 }
