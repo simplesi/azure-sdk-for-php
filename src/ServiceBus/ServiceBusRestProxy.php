@@ -725,6 +725,9 @@ class ServiceBusRestProxy extends ServiceRestProxy implements IServiceBus
             $topicPath,
             $subscriptionName
         );
+        $httpCallContext->setQueryParameters([
+            Resources::SERVICE_BUS_API_VERSION_HEAD => Resources::SERVICE_BUS_API_VERSION,
+        ]);
         $httpCallContext->setPath($subscriptionPath);
         $response = $this->sendHttpContext($httpCallContext);
         $subscriptionInfo = new SubscriptionInfo();

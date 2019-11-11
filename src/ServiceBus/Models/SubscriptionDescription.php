@@ -104,6 +104,41 @@ class SubscriptionDescription
     private $_enableBatchedOperations;
 
     /**
+     * @var string
+     */
+    private $_status;
+
+    /**
+     * @var \DateTime
+     */
+    private $_createdAt;
+
+    /**
+     * @var \DateTime
+     */
+    private $_updatedAt;
+
+    /**
+     * @var \DateTime
+     */
+    private $_accessedAt;
+
+    /**
+     * @var CountDetails
+     */
+    private $_countDetails;
+
+    /**
+     * @var string
+     */
+    private $_autoDeleteOnIdle;
+
+    /**
+     * @var string
+     */
+    private $_entityAvailabilityStatus;
+
+    /**
      * Creates a subscription description instance with default
      * parameter.
      */
@@ -201,6 +236,76 @@ class SubscriptionDescription
         ) {
             $subscriptionDescription->setEnableBatchedOperations(
                 (bool) $subscriptionDescriptionArray['EnableBatchedOperations']
+            );
+        }
+
+        if (array_key_exists(
+            'Status',
+            $subscriptionDescriptionArray
+        )
+        ) {
+            $subscriptionDescription->setStatus(
+                (string) $subscriptionDescriptionArray['Status']
+            );
+        }
+
+        if (array_key_exists(
+            'CreatedAt',
+            $subscriptionDescriptionArray
+        )
+        ) {
+            $subscriptionDescription->setCreatedAt(
+                new \DateTime($subscriptionDescriptionArray['CreatedAt'])
+            );
+        }
+
+        if (array_key_exists(
+            'UpdatedAt',
+            $subscriptionDescriptionArray
+        )
+        ) {
+            $subscriptionDescription->setUpdatedAt(
+                new \DateTime($subscriptionDescriptionArray['UpdatedAt'])
+            );
+        }
+
+        if (array_key_exists(
+            'AccessedAt',
+            $subscriptionDescriptionArray
+        )
+        ) {
+            $subscriptionDescription->setAccessedAt(
+                new \DateTime($subscriptionDescriptionArray['AccessedAt'])
+            );
+        }
+
+        if (array_key_exists(
+            'CountDetails',
+            $subscriptionDescriptionArray
+        )
+        ) {
+            $subscriptionDescription->setCountDetails(
+                CountDetails::create($subscriptionDescriptionArray['CountDetails'])
+            );
+        }
+
+        if (array_key_exists(
+            'AutoDeleteOnIdle',
+            $subscriptionDescriptionArray
+        )
+        ) {
+            $subscriptionDescription->setAutoDeleteOnIdle(
+                (string)$subscriptionDescriptionArray['AutoDeleteOnIdle']
+            );
+        }
+
+        if (array_key_exists(
+            'EntityAvailabilityStatus',
+            $subscriptionDescriptionArray
+        )
+        ) {
+            $subscriptionDescription->setEntityAvailabilityStatus(
+                (string)$subscriptionDescriptionArray['EntityAvailabilityStatus']
             );
         }
 
@@ -391,5 +496,118 @@ class SubscriptionDescription
     public function setEnableBatchedOperations($enableBatchedOperations)
     {
         $this->_enableBatchedOperations = $enableBatchedOperations;
+    }
+
+
+    /**
+     * @return string
+     */
+    public function getStatus()
+    {
+        return $this->_status;
+    }
+
+    /**
+     * @param string $status
+     */
+    public function setStatus($status)
+    {
+        $this->_status = $status;
+    }
+
+    /**
+     * @return \DateTime
+     */
+    public function getCreatedAt()
+    {
+        return $this->_createdAt;
+    }
+
+    /**
+     * @param \DateTime $createdAt
+     */
+    public function setCreatedAt($createdAt)
+    {
+        $this->_createdAt = $createdAt;
+    }
+
+    /**
+     * @return \DateTime
+     */
+    public function getUpdatedAt()
+    {
+        return $this->_updatedAt;
+    }
+
+    /**
+     * @param \DateTime $updatedAt
+     */
+    public function setUpdatedAt($updatedAt)
+    {
+        $this->_updatedAt = $updatedAt;
+    }
+
+    /**
+     * @return \DateTime
+     */
+    public function getAccessedAt()
+    {
+        return $this->_accessedAt;
+    }
+
+    /**
+     * @param \DateTime $accessedAt
+     */
+    public function setAccessedAt($accessedAt)
+    {
+        $this->_accessedAt = $accessedAt;
+    }
+
+    /**
+     * @return CountDetails
+     */
+    public function getCountDetails()
+    {
+        return $this->_countDetails;
+    }
+
+    /**
+     * @param CountDetails $countDetails
+     */
+    public function setCountDetails($countDetails)
+    {
+        $this->_countDetails = $countDetails;
+    }
+
+    /**
+     * @return string
+     */
+    public function getAutoDeleteOnIdle()
+    {
+        return $this->_autoDeleteOnIdle;
+    }
+
+    /**
+     * @param string $autoDeleteOnIdle
+     */
+    public function setAutoDeleteOnIdle($autoDeleteOnIdle)
+    {
+        $this->_autoDeleteOnIdle = $autoDeleteOnIdle;
+    }
+
+    /**
+     * @return string
+     */
+    public function getEntityAvailabilityStatus()
+    {
+        return $this->_entityAvailabilityStatus;
+    }
+
+    /**
+     * @param string $entityAvailabilityStatus
+     */
+    public function setEntityAvailabilityStatus($entityAvailabilityStatus)
+    {
+        $this->_entityAvailabilityStatus = $entityAvailabilityStatus;
     }
 }

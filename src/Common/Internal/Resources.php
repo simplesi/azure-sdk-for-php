@@ -186,6 +186,7 @@ class Resources {
     const ACCEPT_HEADER = 'accept';
     const ACCEPT_CHARSET = 'accept-charset';
     const USER_AGENT = 'User-Agent';
+    const SERVICE_BUS_API_VERSION_HEAD = 'api-version';
 
     // Type
     const QUEUE_TYPE_NAME = 'IQueue';
@@ -256,6 +257,7 @@ class Resources {
 
     // Header values
     const SDK_USER_AGENT = 'Azure-SDK-For-PHP/0.5.0';
+    const SERVICE_BUS_API_VERSION = '2017-04';
     const STORAGE_API_LATEST_VERSION = '2012-02-12';
     const SM_API_LATEST_VERSION = '2011-10-01';
     const DATA_SERVICE_VERSION_VALUE = '1.0;NetFx';
