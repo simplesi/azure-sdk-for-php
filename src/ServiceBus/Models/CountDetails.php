@@ -65,36 +65,46 @@ class CountDetails
      */
     private $_transferDeadLetterMessageCount;
 
-    public static function create($countDetailsArray) {
+    public static function create($countDetailsXmlElement) {
+        /* @var \SimpleXMLElement $countDetailsXmlElement*/
+        $countDetailsXmlElement->registerXPathNamespace(
+            'd3p1',
+            'http://schemas.microsoft.com/netservices/2011/06/servicebus'
+        );
         $countDetails = new self();
 
-        if (array_key_exists('ActiveMessageCount', $countDetailsArray)) {
+        $activeMessageCount = $countDetailsXmlElement->xpath('//d3p1:ActiveMessageCount');
+        if (count($activeMessageCount) > 0) {
             $countDetails->setActiveMessageCount(
-                (int)$countDetailsArray['ActiveMessageCount']
+                (int)$activeMessageCount[0]
             );
         }
 
-        if (array_key_exists('DeadLetterMessageCount', $countDetailsArray)) {
+        $deadLetterMessageCount = $countDetailsXmlElement->xpath('//d3p1:DeadLetterMessageCount');
+        if (count($deadLetterMessageCount) > 0) {
             $countDetails->setDeadLetterMessageCount(
-                (int)$countDetailsArray['DeadLetterMessageCount']
+                (int)$deadLetterMessageCount
             );
         }
 
-        if (array_key_exists('ScheduledMessageCount', $countDetailsArray)) {
+        $scheduledMessageCount= $countDetailsXmlElement->xpath('//d3p1:DeadLetterMessageCount');
+        if (count($scheduledMessageCount) > 0) {
             $countDetails->setScheduledMessageCount(
-                (int)$countDetailsArray['ScheduledMessageCount']
+                (int)$scheduledMessageCount
             );
         }
 
-        if (array_key_exists('TransferMessageCount', $countDetailsArray)) {
+        $transferMessageCount= $countDetailsXmlElement->xpath('//d3p1:TransferMessageCount');
+        if (count($transferMessageCount) > 0) {
             $countDetails->setTransferMessageCount(
-                (int)$countDetailsArray['TransferMessageCount']
+                (int)$transferMessageCount
             );
         }
 
-        if (array_key_exists('TransferDeadLetterMessageCount', $countDetailsArray)) {
+        $transferDeadLetterMessageCount = $countDetailsXmlElement->xpath('//d3p1:TransferDeadLetterMessageCount');
+        if (count($transferDeadLetterMessageCount) > 0) {
             $countDetails->setTransferDeadLetterMessageCount(
-                (int)$countDetailsArray['TransferDeadLetterMessageCount']
+                (int)$transferDeadLetterMessageCount
             );
         }
 
