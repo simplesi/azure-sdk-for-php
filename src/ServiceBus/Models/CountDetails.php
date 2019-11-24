@@ -38,8 +38,7 @@ namespace WindowsAzure\ServiceBus\Models;
  *
  * @link      http://msdn.microsoft.com/en-us/library/windowsazure/hh780763
  */
-class CountDetails
-{
+class CountDetails {
     /**
      * @var int
      */
@@ -76,35 +75,35 @@ class CountDetails
         $activeMessageCount = $countDetailsXmlElement->xpath('//d3p1:ActiveMessageCount');
         if (count($activeMessageCount) > 0) {
             $countDetails->setActiveMessageCount(
-                (int)$activeMessageCount[0]
+                (int) $activeMessageCount[0]
             );
         }
 
         $deadLetterMessageCount = $countDetailsXmlElement->xpath('//d3p1:DeadLetterMessageCount');
         if (count($deadLetterMessageCount) > 0) {
             $countDetails->setDeadLetterMessageCount(
-                (int)$deadLetterMessageCount
+                (int) $deadLetterMessageCount[0]
             );
         }
 
-        $scheduledMessageCount= $countDetailsXmlElement->xpath('//d3p1:DeadLetterMessageCount');
+        $scheduledMessageCount = $countDetailsXmlElement->xpath('//d3p1:ScheduledMessageCount');
         if (count($scheduledMessageCount) > 0) {
             $countDetails->setScheduledMessageCount(
-                (int)$scheduledMessageCount
+                (int) $scheduledMessageCount[0]
             );
         }
 
-        $transferMessageCount= $countDetailsXmlElement->xpath('//d3p1:TransferMessageCount');
+        $transferMessageCount = $countDetailsXmlElement->xpath('//d3p1:TransferMessageCount');
         if (count($transferMessageCount) > 0) {
             $countDetails->setTransferMessageCount(
-                (int)$transferMessageCount
+                (int) $transferMessageCount[0]
             );
         }
 
         $transferDeadLetterMessageCount = $countDetailsXmlElement->xpath('//d3p1:TransferDeadLetterMessageCount');
         if (count($transferDeadLetterMessageCount) > 0) {
             $countDetails->setTransferDeadLetterMessageCount(
-                (int)$transferDeadLetterMessageCount
+                (int) $transferDeadLetterMessageCount[0]
             );
         }
 
@@ -114,80 +113,70 @@ class CountDetails
     /**
      * @return int
      */
-    public function getActiveMessageCount()
-    {
+    public function getActiveMessageCount() {
         return $this->_activeMessageCount;
     }
 
     /**
      * @param int $activeMessageCount
      */
-    public function setActiveMessageCount($activeMessageCount)
-    {
+    public function setActiveMessageCount($activeMessageCount) {
         $this->_activeMessageCount = $activeMessageCount;
     }
 
     /**
      * @return int
      */
-    public function getDeadLetterMessageCount()
-    {
+    public function getDeadLetterMessageCount() {
         return $this->_deadLetterMessageCount;
     }
 
     /**
      * @param int $deadLetterMessageCount
      */
-    public function setDeadLetterMessageCount($deadLetterMessageCount)
-    {
+    public function setDeadLetterMessageCount($deadLetterMessageCount) {
         $this->_deadLetterMessageCount = $deadLetterMessageCount;
     }
 
     /**
      * @return int
      */
-    public function getScheduledMessageCount()
-    {
+    public function getScheduledMessageCount() {
         return $this->_scheduledMessageCount;
     }
 
     /**
      * @param int $scheduledMessageCount
      */
-    public function setScheduledMessageCount($scheduledMessageCount)
-    {
+    public function setScheduledMessageCount($scheduledMessageCount) {
         $this->_scheduledMessageCount = $scheduledMessageCount;
     }
 
     /**
      * @return int
      */
-    public function getTransferMessageCount()
-    {
+    public function getTransferMessageCount() {
         return $this->_transferMessageCount;
     }
 
     /**
      * @param int $transferMessageCount
      */
-    public function setTransferMessageCount($transferMessageCount)
-    {
+    public function setTransferMessageCount($transferMessageCount) {
         $this->_transferMessageCount = $transferMessageCount;
     }
 
     /**
      * @return int
      */
-    public function getTransferDeadLetterMessageCount()
-    {
+    public function getTransferDeadLetterMessageCount() {
         return $this->_transferDeadLetterMessageCount;
     }
 
     /**
      * @param int $transferDeadLetterMessageCount
      */
-    public function setTransferDeadLetterMessageCount($transferDeadLetterMessageCount)
-    {
+    public function setTransferDeadLetterMessageCount($transferDeadLetterMessageCount) {
         $this->_transferDeadLetterMessageCount = $transferDeadLetterMessageCount;
     }
 }
