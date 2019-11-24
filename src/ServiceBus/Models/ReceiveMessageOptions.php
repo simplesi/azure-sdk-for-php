@@ -54,6 +54,13 @@ class ReceiveMessageOptions
     private $_receiveMode;
 
     /**
+     * The HTTP request configuration
+     *
+     * @var array
+     */
+    private $_httpConfig = [];
+
+    /**
      * Creates a receive message option instance with default parameters.
      */
     public function __construct()
@@ -134,5 +141,21 @@ class ReceiveMessageOptions
     public function setPeekLock()
     {
         $this->_receiveMode = ReceiveMode::PEEK_LOCK;
+    }
+
+    /**
+     * @return array
+     */
+    public function getHttpConfig()
+    {
+        return $this->_httpConfig;
+    }
+
+    /**
+     * @param array $httpConfig
+     */
+    public function setHttpConfig($httpConfig)
+    {
+        $this->_httpConfig = $httpConfig;
     }
 }

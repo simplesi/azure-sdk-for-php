@@ -456,7 +456,12 @@ class Resources {
     const SSL_VERIFY_HOST = 'ssl_verify_host';
     const SSL_LOCAL_CERT = 'ssl_local_cert';
     const SSL_CAFILE = 'ssl_cafile';
+    //Timeout if the client fails to connect to the server in N seconds.
     const CONNECT_TIMEOUT = 'connect_timeout';
+    //The timeout applies to individual read operations on a streamed body (when the stream option is enabled).
+    const READ_TIMEOUT = 'read_timeout';
+    //Timeout if a server does not return a response in N seconds.
+    const TIMEOUT = 'timeout';
 
     // Media services
     const MEDIA_SERVICES_URL = 'https://media.windows.net/API/';

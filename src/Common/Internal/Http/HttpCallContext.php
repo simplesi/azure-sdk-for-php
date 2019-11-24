@@ -99,6 +99,13 @@ class HttpCallContext
     private $_body = null;
 
     /**
+     * The HTTP config
+     *
+     * @var array
+     */
+    private $_config = [];
+
+    /**
      * Gets method.
      *
      * @return string
@@ -355,6 +362,25 @@ class HttpCallContext
             $this->_queryParams[$name] = $value;
         }
     }
+
+    /**
+     * @return array
+     */
+    public function getConfig()
+    {
+        return $this->_config;
+    }
+
+    /**
+     * @param $key
+     * @param $val
+     */
+    public function setConfig($key, $val)
+    {
+        $this->_config[$key] = $val;
+    }
+
+
 
     /**
      * Adds status code to the expected status codes.

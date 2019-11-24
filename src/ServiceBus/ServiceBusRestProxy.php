@@ -221,6 +221,10 @@ class ServiceBusRestProxy extends ServiceRestProxy implements IServiceBus
             );
         }
 
+        foreach ($receiveMessageOptions->getHttpConfig() as $configKey => $configVal) {
+            $httpCallContext->setConfig($configKey, $configVal);
+        }
+
         $response = $this->sendHttpContext($httpCallContext);
         if ($response->getStatusCode() === Resources::STATUS_NO_CONTENT) {
             $brokeredMessage = null;
